@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07182b">
+<meta name="description" content="Share your experience at Hotel Monalisa. Powered by NeerWanna.">
+<title>Share Your Experience | Hotel Monalisa</title>
+<style>
+:root{--navy:#07182b;--navy2:#0b2540;--teal:#25b9c7;--cyan:#6fe1e8;--ink:#f5fbff;--muted:#a9bdce;--line:rgba(194,226,244,.16);--glass:rgba(255,255,255,.065);--gold:#e2c56c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:radial-gradient(ellipse at 12% 4%,rgba(23,118,164,.24),transparent 35%),radial-gradient(ellipse at 90% 34%,rgba(36,181,191,.12),transparent 30%),linear-gradient(145deg,#061321,#0a2035 55%,#061522);background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:radial-gradient(rgba(255,255,255,.2) .6px,transparent .6px);background-size:6px 6px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+.wrap{width:min(100% - 28px,720px);margin:0 auto;position:relative;padding:24px 0 30px}
+.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}
+.powered{display:flex;align-items:center;gap:8px;color:#b9cedd;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.powered img{width:35px;height:35px;object-fit:contain;background:#fff;border-radius:9px;padding:2px}
+.lang{background:rgba(255,255,255,.08);color:white;border:1px solid var(--line);border-radius:999px;padding:9px 11px;font:inherit;font-size:13px;outline:none}
+.lang option{color:#10243a}
+.hero{text-align:center;padding:18px 16px 24px}
+.hotel-logo{display:block;width:min(100%,310px);height:66px;object-fit:cover;object-position:center;background:#050505;border-radius:8px;margin:0 auto 22px;border:1px solid rgba(226,197,108,.2)}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);font-weight:700}
+h1{font-size:clamp(30px,7vw,46px);line-height:1.07;letter-spacing:-.045em;margin:12px 0 12px;font-weight:720}
+.gradient{background:linear-gradient(95deg,#fff 12%,#a6f2f1 70%,#58c7db);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{max-width:460px;margin:0 auto;color:#b8cad8;font-size:15px;line-height:1.65}
+.progress-wrap{margin:5px 0 17px;display:flex;align-items:center;gap:12px;color:#a9bdce;font-size:12px}
+.progress{height:4px;flex:1;background:rgba(255,255,255,.1);border-radius:20px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--cyan));transition:width .25s}
+.card{background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:23px;padding:22px;box-shadow:0 22px 70px rgba(0,0,0,.18);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+.question{padding:17px 0;border-bottom:1px solid rgba(255,255,255,.09)}.question:first-child{padding-top:0}.question:last-child{border-bottom:0;padding-bottom:0}
+.qtop{display:flex;gap:12px;align-items:flex-start;margin-bottom:13px}.num{width:29px;height:29px;flex:0 0 29px;border:1px solid rgba(88,215,224,.38);background:rgba(37,185,199,.12);color:var(--cyan);display:grid;place-items:center;border-radius:10px;font-size:12px;font-weight:750}
+.qtitle{font-size:15px;font-weight:650;line-height:1.5;margin:3px 0 0}
+.choices{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}
+.choice{appearance:none;min-width:0;cursor:pointer;border:1px solid rgba(199,224,239,.17);background:rgba(1,14,28,.24);border-radius:12px;padding:11px 3px;color:#b7c8d6;font-size:11px;line-height:1.2;transition:.18s}
+.choice:hover{border-color:rgba(91,220,227,.55);color:white}.choice[aria-pressed="true"]{border-color:var(--teal);background:linear-gradient(140deg,rgba(37,185,199,.24),rgba(37,185,199,.09));color:#fff;box-shadow:inset 0 0 0 1px rgba(37,185,199,.12)}
+.choice .dot{display:block;width:6px;height:6px;border-radius:50%;background:#5d7587;margin:0 auto 8px}.choice[aria-pressed="true"] .dot{background:var(--cyan);box-shadow:0 0 10px rgba(111,225,232,.6)}
+.note{font-size:12px;color:#8fa8ba;line-height:1.5;margin:14px 0 0}
+.btn{border:0;border-radius:13px;padding:15px 18px;min-height:51px;font:inherit;font-weight:700;cursor:pointer;transition:transform .16s,filter .16s;width:100%}.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}.btn:active{transform:translateY(0)}
+.primary{color:#031522;background:linear-gradient(105deg,#75e5e8,#28c0c9);box-shadow:0 9px 24px rgba(37,185,199,.17)}
+.secondary{color:#eaf8ff;background:rgba(255,255,255,.07);border:1px solid var(--line)}
+.actions{display:grid;gap:10px;margin-top:18px}
+.hidden{display:none!important}
+.result{margin-top:18px;animation:rise .35s ease}.result-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}.check{width:32px;height:32px;border-radius:11px;background:rgba(37,185,199,.15);color:var(--cyan);display:grid;place-items:center;font-size:17px}.result h2{font-size:18px;margin:0}.result-head p{font-size:12px;color:var(--muted);margin:4px 0 0}
+.review{border:1px solid rgba(116,218,224,.2);background:rgba(1,15,28,.42);border-radius:15px;padding:16px;color:#e1edf4;font-size:14px;line-height:1.8;white-space:pre-wrap}
+.how{margin-top:18px;padding:18px 20px}.how h3{font-size:14px;margin:0 0 13px}.steps{display:grid;gap:11px}.step{display:flex;align-items:flex-start;gap:10px;color:#b5c8d6;font-size:12px;line-height:1.55}.step b{flex:0 0 23px;width:23px;height:23px;display:grid;place-items:center;border-radius:8px;background:rgba(255,255,255,.08);color:#dffcff;font-size:11px}
+.footer{text-align:center;padding:24px 8px 0;color:#7f9aaa;font-size:11px;line-height:1.8}.footer strong{color:#c0d5e1;font-weight:600}.brandline{display:inline-flex;align-items:center;gap:6px}.brandline img{width:20px;height:20px;object-fit:contain;background:#fff;border-radius:5px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#e9ffff;color:#082033;padding:11px 16px;border-radius:999px;font-size:13px;font-weight:700;box-shadow:0 10px 30px #0005;transition:.22s;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:440px){.wrap{width:min(100% - 20px,720px);padding-top:15px}.card{padding:17px;border-radius:19px}.choices{gap:4px}.choice{font-size:10px;padding:10px 1px;border-radius:10px}.qtitle{font-size:14px}.hero{padding:12px 8px 20px}.hotel-logo{height:58px;width:min(100%,285px)}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topline">
+    <div class="powered"><img src="assets/neerwanna-logo.png" alt="NeerWanna logo"><span data-i="powered">Powered by NeerWanna</span></div>
+    <select class="lang" id="language" aria-label="Choose language">
+      <option value="en">English</option><option value="bn">বাংলা</option><option value="hi">हिन्दी</option>
+    </select>
+  </div>
+  <header class="hero">
+    <img class="hotel-logo" src="assets/hotel-monalisa-logo.jpg" alt="Hotel Monalisa">
+    <div class="eyebrow" data-i="eyebrow">A moment to share</div>
+    <h1><span data-i="title1">How was your</span><br><span class="gradient" data-i="title2">experience?</span></h1>
+    <p class="sub" data-i="subtitle">Your honest feedback helps Hotel Monalisa understand what matters most to its guests.</p>
+  </header>
+
+  <div class="progress-wrap"><span id="progress-label">0 of 5 answered</span><div class="progress"><span id="progress-bar"></span></div></div>
+  <main class="card" id="question-card">
+    <div id="questions"></div>
+    <p class="note" data-i="honesty">Choose what best matches your real experience. Your review will reflect your selections.</p>
+    <div class="actions"><button class="btn primary" id="generate" data-i="generate">Create my review <span aria-hidden="true">↗</span></button></div>
+  </main>
+
+  <section class="card result hidden" id="result" aria-live="polite">
+    <div class="result-head"><div class="check">✓</div><div><h2 data-i="reviewTitle">Your review, ready to edit</h2><p data-i="reviewSub">Make any changes so it sounds like you.</p></div></div>
+    <div class="review" id="review-text" contenteditable="true" role="textbox" aria-label="Editable review" spellcheck="true"></div>
+    <div class="actions">
+      <button class="btn primary" id="copy" data-i="copy">Copy review</button>
+      <a class="btn secondary hidden" id="proceed" href="https://maps.app.goo.gl/qfpcD8XbBvZ69gFMA" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;justify-content:center;text-decoration:none" data-i="proceed">Proceed to Google Reviews ↗</a>
+    </div>
+    <p class="note" data-i="destinationNote">The link opens Hotel Monalisa on Google Maps. If needed, choose Reviews or Write a review there.</p>
+  </section>
+
+  <section class="card how">
+    <h3 data-i="howTitle">How to post your review</h3>
+    <div class="steps">
+      <div class="step"><b>1</b><span data-i="step1">Answer the five quick questions and create your review.</span></div>
+      <div class="step"><b>2</b><span data-i="step2">Tap Copy review, then Proceed to Google Reviews.</span></div>
+      <div class="step"><b>3</b><span data-i="step3">On Google, tap the review box, paste your text, check it and submit it yourself.</span></div>
+    </div>
+  </section>
+  <footer class="footer"><div class="brandline"><img src="assets/neerwanna-logo.png" alt=""><span><strong data-i="powered">Powered by NeerWanna</strong></span></div><div data-i="footer">Thoughtfully designed for better guest experiences.</div></footer>
+</div>
+<div class="toast" id="toast" role="status">Copied to clipboard</div>
+<script>
+const MAPS_URL = "https://maps.app.goo.gl/qfpcD8XbBvZ69gFMA";
+const labels = {
+ en:{
+  powered:"Powered by NeerWanna",eyebrow:"A MOMENT TO SHARE",title1:"How was your",title2:"experience?",
+  subtitle:"Your honest feedback helps Hotel Monalisa understand what matters most to its guests.",
+  honesty:"Choose what best matches your real experience. Your review will reflect your selections.",
+  generate:"Create my review ↗",reviewTitle:"Your review, ready to edit",reviewSub:"Make any changes so it sounds like you.",copy:"Copy review",copied:"Copied to clipboard",copyFail:"Select and copy your review",proceed:"Proceed to Google Reviews ↗",
+  destinationNote:"The link opens Hotel Monalisa on Google Maps. If needed, choose Reviews or Write a review there.",
+  howTitle:"How to post your review",step1:"Answer the five quick questions and create your review.",step2:"Tap Copy review, then Proceed to Google Reviews.",step3:"On Google, tap the review box, paste your text, check it and submit it yourself.",footer:"Thoughtfully designed for better guest experiences.",
+  progress:n=>`${n} of 5 answered`,need:"Please answer all five questions to create your review.",
+  qs:["How was the food quality?","How would you describe the taste and freshness?","How was the staff and service?","How did you find the ambience?","How was your overall experience?"],
+  opts:["Excellent","Good","Average","Could be better","Poor"],
+  open:["The food quality was excellent.","The food quality was good.","The food quality was average.","The food quality could be better.","The food quality did not meet my expectations."],
+  taste:["The taste and freshness stood out.","The taste and freshness were good.","The taste and freshness were average.","The taste and freshness could be improved.","I was not satisfied with the taste and freshness."],
+  service:["The staff were attentive and the service was excellent.","The staff were courteous and the service was good.","The service was average.","The service could be more attentive.","The service did not meet my expectations."],
+  ambience:["The ambience was welcoming and comfortable.","The ambience was pleasant.","The ambience was fine.","The ambience could be improved.","I was not satisfied with the ambience."],
+  overall:["Overall, I had an excellent experience at Hotel Monalisa.","Overall, I had a good experience at Hotel Monalisa.","Overall, my experience at Hotel Monalisa was average.","Overall, there is room for improvement at Hotel Monalisa.","Overall, my experience at Hotel Monalisa did not meet my expectations."],
+  intro:"I recently visited Hotel Monalisa. ",end:" I appreciate the opportunity to share my feedback."
+ },
+ bn:{
+  powered:"NeerWanna-এর সৌজন্যে",eyebrow:"আপনার অভিজ্ঞতা জানান",title1:"আপনার",title2:"অভিজ্ঞতা কেমন?",
+  subtitle:"আপনার সৎ মতামত Hotel Monalisa-কে অতিথিদের পছন্দ আরও ভালোভাবে বুঝতে সাহায্য করে।",
+  honesty:"আপনার বাস্তব অভিজ্ঞতার সঙ্গে মেলে এমন উত্তর বেছে নিন। রিভিউটি আপনার উত্তর অনুযায়ী তৈরি হবে।",
+  generate:"আমার রিভিউ তৈরি করুন ↗",reviewTitle:"আপনার রিভিউ—সম্পাদনা করুন",reviewSub:"নিজের মতো করে প্রয়োজনে পরিবর্তন করুন।",copy:"রিভিউ কপি করুন",copied:"ক্লিপবোর্ডে কপি হয়েছে",copyFail:"রিভিউ নির্বাচন করে কপি করুন",proceed:"Google Reviews-এ যান ↗",
+  destinationNote:"লিংকটি Google Maps-এ Hotel Monalisa খুলবে। প্রয়োজনে সেখানে Reviews বা Write a review নির্বাচন করুন।",
+  howTitle:"কীভাবে রিভিউ পোস্ট করবেন",step1:"পাঁচটি ছোট প্রশ্নের উত্তর দিয়ে রিভিউ তৈরি করুন।",step2:"রিভিউ কপি করুন, তারপর Google Reviews-এ যান।",step3:"Google-এ রিভিউ লেখার জায়গায় ট্যাপ করে লেখা পেস্ট করুন, দেখে নিয়ে নিজে জমা দিন।",footer:"অতিথিদের আরও ভালো অভিজ্ঞতার জন্য যত্নসহকারে তৈরি।",
+  progress:n=>`৫টির মধ্যে ${n}টি উত্তর`,need:"রিভিউ তৈরি করতে অনুগ্রহ করে পাঁচটি প্রশ্নেরই উত্তর দিন।",
+  qs:["খাবারের মান কেমন ছিল?","স্বাদ ও সতেজতা কেমন ছিল?","কর্মীদের ব্যবহার ও পরিষেবা কেমন ছিল?","পরিবেশ কেমন লেগেছে?","সামগ্রিক অভিজ্ঞতা কেমন ছিল?"],
+  opts:["অসাধারণ","ভালো","মোটামুটি","আরও ভালো হতে পারত","খারাপ"],
+  open:["খাবারের মান অসাধারণ ছিল।","খাবারের মান ভালো ছিল।","খাবারের মান মোটামুটি ছিল।","খাবারের মান আরও ভালো হতে পারত।","খাবারের মান আমার প্রত্যাশা পূরণ করেনি।"],
+  taste:["স্বাদ ও সতেজতা বিশেষভাবে ভালো লেগেছে।","স্বাদ ও সতেজতা ভালো ছিল।","স্বাদ ও সতেজতা মোটামুটি ছিল।","স্বাদ ও সতেজতা আরও উন্নত করা যেতে পারে।","স্বাদ ও সতেজতা নিয়ে আমি সন্তুষ্ট ছিলাম না।"],
+  service:["কর্মীরা মনোযোগী ছিলেন এবং পরিষেবা অসাধারণ ছিল।","কর্মীরা ভদ্র ছিলেন এবং পরিষেবা ভালো ছিল।","পরিষেবা মোটামুটি ছিল।","পরিষেবায় আরও মনোযোগ দেওয়া যেতে পারে।","পরিষেবা আমার প্রত্যাশা পূরণ করেনি।"],
+  ambience:["পরিবেশ ছিল স্বাগতপূর্ণ ও আরামদায়ক।","পরিবেশ মনোরম ছিল।","পরিবেশ মোটামুটি ছিল।","পরিবেশ আরও উন্নত করা যেতে পারে।","পরিবেশ নিয়ে আমি সন্তুষ্ট ছিলাম না।"],
+  overall:["সব মিলিয়ে Hotel Monalisa-তে আমার অভিজ্ঞতা অসাধারণ ছিল।","সব মিলিয়ে Hotel Monalisa-তে আমার অভিজ্ঞতা ভালো ছিল।","সব মিলিয়ে Hotel Monalisa-তে আমার অভিজ্ঞতা মোটামুটি ছিল।","সব মিলিয়ে Hotel Monalisa-তে আরও উন্নতির সুযোগ রয়েছে।","সব মিলিয়ে Hotel Monalisa-তে আমার অভিজ্ঞতা প্রত্যাশা পূরণ করেনি।"],
+  intro:"সম্প্রতি আমি Hotel Monalisa-তে গিয়েছিলাম। ",end:" আমার মতামত জানানোর সুযোগ দেওয়ার জন্য ধন্যবাদ।"
+ },
+ hi:{
+  powered:"NeerWanna द्वारा संचालित",eyebrow:"अपना अनुभव साझा करें",title1:"आपका",title2:"अनुभव कैसा रहा?",
+  subtitle:"आपकी ईमानदार प्रतिक्रिया Hotel Monalisa को अपने मेहमानों की पसंद बेहतर समझने में मदद करती है।",
+  honesty:"अपने वास्तविक अनुभव से मेल खाने वाले विकल्प चुनें। समीक्षा आपके जवाबों के अनुसार बनेगी।",
+  generate:"मेरी समीक्षा बनाएँ ↗",reviewTitle:"आपकी समीक्षा—संपादित करें",reviewSub:"इसे अपने अनुभव के अनुसार बदल सकते हैं।",copy:"समीक्षा कॉपी करें",copied:"क्लिपबोर्ड पर कॉपी हो गया",copyFail:"समीक्षा चुनकर कॉपी करें",proceed:"Google Reviews पर जाएँ ↗",
+  destinationNote:"यह लिंक Google Maps पर Hotel Monalisa खोलेगा। ज़रूरत हो तो वहाँ Reviews या Write a review चुनें।",
+  howTitle:"समीक्षा कैसे पोस्ट करें",step1:"पाँच छोटे सवालों के जवाब देकर समीक्षा बनाएँ।",step2:"समीक्षा कॉपी करें, फिर Google Reviews पर जाएँ।",step3:"Google पर समीक्षा वाले बॉक्स में टैप करें, टेक्स्ट पेस्ट करें, जाँचें और खुद सबमिट करें।",footer:"मेहमानों के बेहतर अनुभव के लिए सोच-समझकर बनाया गया।",
+  progress:n=>`5 में से ${n} जवाब`,need:"समीक्षा बनाने के लिए कृपया पाँचों सवालों के जवाब दें।",
+  qs:["खाने की गुणवत्ता कैसी थी?","स्वाद और ताज़गी कैसी थी?","स्टाफ और सेवा कैसी थी?","वहाँ का माहौल कैसा लगा?","आपका कुल अनुभव कैसा रहा?"],
+  opts:["शानदार","अच्छा","औसत","बेहतर हो सकता था","खराब"],
+  open:["खाने की गुणवत्ता शानदार थी।","खाने की गुणवत्ता अच्छी थी।","खाने की गुणवत्ता औसत थी।","खाने की गुणवत्ता बेहतर हो सकती थी।","खाने की गुणवत्ता मेरी उम्मीदों पर खरी नहीं उतरी।"],
+  taste:["स्वाद और ताज़गी खास तौर पर अच्छे लगे।","स्वाद और ताज़गी अच्छी थी।","स्वाद और ताज़गी औसत थी।","स्वाद और ताज़गी में सुधार हो सकता है।","मैं स्वाद और ताज़गी से संतुष्ट नहीं था।"],
+  service:["स्टाफ ध्यान देने वाला था और सेवा शानदार थी।","स्टाफ विनम्र था और सेवा अच्छी थी।","सेवा औसत थी।","सेवा में और ध्यान दिया जा सकता है।","सेवा मेरी उम्मीदों पर खरी नहीं उतरी।"],
+  ambience:["माहौल स्वागतपूर्ण और आरामदायक था।","माहौल अच्छा था।","माहौल ठीक-ठाक था।","माहौल में सुधार हो सकता है।","मैं माहौल से संतुष्ट नहीं था।"],
+  overall:["कुल मिलाकर, Hotel Monalisa में मेरा अनुभव शानदार रहा।","कुल मिलाकर, Hotel Monalisa में मेरा अनुभव अच्छा रहा।","कुल मिलाकर, Hotel Monalisa में मेरा अनुभव औसत रहा।","कुल मिलाकर, Hotel Monalisa में सुधार की गुंजाइश है।","कुल मिलाकर, Hotel Monalisa में मेरा अनुभव उम्मीदों पर खरा नहीं उतरा।"],
+  intro:"मैं हाल ही में Hotel Monalisa गया था। ",end:"अपनी प्रतिक्रिया साझा करने का अवसर देने के लिए धन्यवाद।"
+ }
+};
+const keys=["food","taste","service","ambience","overall"];
+const state=[null,null,null,null,null];
+const $=s=>document.querySelector(s);
+let lang="en";
+function renderQuestions(){
+ const t=labels[lang];
+ $("#questions").innerHTML=t.qs.map((q,i)=>`<section class="question"><div class="qtop"><span class="num">0${i+1}</span><div class="qtitle">${q}</div></div><div class="choices" role="group" aria-label="${q}">${t.opts.map((opt,j)=>`<button type="button" class="choice" data-q="${i}" data-v="${j}" aria-pressed="${state[i]===j}"><span class="dot"></span>${opt}</button>`).join("")}</div></section>`).join("");
+ document.querySelectorAll(".choice").forEach(b=>b.addEventListener("click",()=>{
+   state[+b.dataset.q]=+b.dataset.v;
+   document.querySelectorAll(`.choice[data-q="${b.dataset.q}"]`).forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
+   updateProgress();
+ }));
+ updateProgress();
+}
+function updateProgress(){const n=state.filter(v=>v!==null).length;$("#progress-label").textContent=labels[lang].progress(n);$("#progress-bar").style.width=(n*20)+"%"}
+function applyLanguage(){
+ const t=labels[lang];
+ document.documentElement.lang=lang;
+ document.querySelectorAll("[data-i]").forEach(el=>{const k=el.dataset.i;if(typeof t[k]==="string")el.textContent=t[k]});
+ $("#generate").textContent=t.generate;
+ $("#copy").textContent=t.copy;
+ $("#proceed").textContent=t.proceed;
+ $("#proceed").href=MAPS_URL;
+ $("#result").classList.add("hidden");
+ $("#proceed").classList.add("hidden");
+ renderQuestions();
+}
+function makeReview(){
+ const t=labels[lang];
+ if(state.some(v=>v===null)){showToast(t.need);return}
+ const parts=[t.open[state[0]],t.taste[state[1]],t.service[state[2]],t.ambience[state[3]],t.overall[state[4]]];
+ $("#review-text").textContent=t.intro+parts.join(" ")+t.end;
+ $("#result").classList.remove("hidden");
+ $("#proceed").classList.add("hidden");
+ $("#result").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function showToast(msg){const el=$("#toast");el.textContent=msg;el.classList.add("show");clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>el.classList.remove("show"),2200)}
+$("#language").addEventListener("change",e=>{lang=e.target.value;applyLanguage()});
+$("#generate").addEventListener("click",makeReview);
+$("#copy").addEventListener("click",async()=>{
+ const t=labels[lang], text=$("#review-text").innerText.trim();
+ try{await navigator.clipboard.writeText(text);$("#proceed").classList.remove("hidden");showToast(t.copied)}
+ catch(e){
+  const range=document.createRange();range.selectNodeContents($("#review-text"));const sel=window.getSelection();sel.removeAllRanges();sel.addRange(range);
+  showToast(t.copyFail);$("#proceed").classList.remove("hidden");
+ }
+});
+applyLanguage();
+</script>
+</body>
+</html>
